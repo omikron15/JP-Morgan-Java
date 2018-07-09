@@ -11,7 +11,7 @@ public class StockTest {
 
     @Before
     public void setUp(){
-        TEAstock = new Stock("TEA", StockType.Common, 0, 100);
+        TEAstock = new Stock("TEA", 0, 100);
     }
 
     @Test

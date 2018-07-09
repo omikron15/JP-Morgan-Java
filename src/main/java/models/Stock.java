@@ -7,9 +7,9 @@ public class Stock {
     private int lastDividend;
     private int parValue;
 
-    public Stock(String symbol, StockType stockType, int lastDividend, int parValue) {
+    public Stock(String symbol, int lastDividend, int parValue) {
         this.symbol = symbol;
-        this.stockType = stockType;
+        this.stockType = StockType.Common;
         this.lastDividend = lastDividend;
         this.parValue = parValue;
     }
