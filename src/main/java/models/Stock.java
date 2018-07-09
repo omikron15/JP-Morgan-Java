@@ -29,4 +29,16 @@ public class Stock {
     public int getParValue() {
         return parValue;
     }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public void setLastDividend(int lastDividend) {
+        this.lastDividend = lastDividend;
+    }
+
+    public void setParValue(int parValue) {
+        this.parValue = parValue;
+    }
 }

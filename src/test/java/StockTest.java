@@ -8,6 +8,7 @@ import static org.junit.Assert.assertEquals;
 public class StockTest {
 
     public Stock TEAstock;
+    public Stock POPstock;
 
     @Before
     public void setUp(){
@@ -50,5 +51,19 @@ public class StockTest {
     public void setParValue() {
         TEAstock.setParValue(50);
         assertEquals(50, TEAstock.getParValue());
+    }
+
+    @Test
+    public void calculateDividendYieldTEAstock() {
+        assertEquals(0.0, TEAstock.calculateDividendYield(100), 0.0001);
+        assertEquals(0.0, TEAstock.calculateDividendYield(777), 0.0001);
+        assertEquals(0.0, TEAstock.calculateDividendYield(11), 0.0001);
+    }
+
+    @Test
+    public void calculateDividendYieldPOPstock() {
+        assertEquals(0.08, POPstock.calculateDividendYield(100), 0.0001);
+        assertEquals(0.0102, POPstock.calculateDividendYield(777), 0.0001);
+        assertEquals(0.0727, POPstock.calculateDividendYield(11), 0.0001);
     }
 }
