@@ -8,12 +8,10 @@ import static org.junit.Assert.assertEquals;
 public class StockTest {
 
     public Stock TEAstock;
-    public Stock GINstock;
 
     @Before
     public void setUp(){
         TEAstock = new Stock("TEA", StockType.Common, 0, 100);
-//        GINstock = new Stock("GIN", StockType.Prefered, 0, 2, 100);
     }
 
     @Test
@@ -29,11 +27,6 @@ public class StockTest {
     @Test
     public void getLastDividend() {
         assertEquals(0, TEAstock.getLastDividend());
-    }
-
-    @Test
-    public void getFixedDividend() {
-        assertEquals(2, TEAstock.getFixedDividend());
     }
 
     @Test
