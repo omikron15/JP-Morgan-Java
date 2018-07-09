@@ -33,4 +33,22 @@ public class StockTest {
     public void getParValue() {
         assertEquals(100, TEAstock.getParValue());
     }
+
+    @Test
+    public void setStockSymbol() {
+        TEAstock.setSymbol("POP");
+        assertEquals("POP", TEAstock.getSymbol());
+    }
+
+    @Test
+    public void setLastDividend() {
+        TEAstock.setLastDividend(5);
+        assertEquals(5, TEAstock.getLastDividend());
+    }
+
+    @Test
+    public void setParValue() {
+        TEAstock.setParValue(50);
+        assertEquals(50, TEAstock.getParValue());
+    }
 }
