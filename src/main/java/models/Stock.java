@@ -41,4 +41,8 @@ public class Stock {
     public void setParValue(int parValue) {
         this.parValue = parValue;
     }
+
+    public double calculateDividendYield(double marketPrice){
+        return (this.lastDividend/marketPrice);
+    }
 }

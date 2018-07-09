@@ -62,8 +62,9 @@ public class StockTest {
 
     @Test
     public void calculateDividendYieldPOPstock() {
+        POPstock = new Stock("POP", 8, 100);
         assertEquals(0.08, POPstock.calculateDividendYield(100), 0.0001);
         assertEquals(0.0102, POPstock.calculateDividendYield(777), 0.0001);
-        assertEquals(0.0727, POPstock.calculateDividendYield(11), 0.0001);
+        assertEquals(0.7272, POPstock.calculateDividendYield(11), 0.0001);
     }
 }
