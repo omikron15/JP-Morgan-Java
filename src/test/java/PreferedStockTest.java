@@ -39,5 +39,10 @@ public class PreferedStockTest {
         assertEquals(100, GINStock.getParValue());
     }
 
+    @Test
+    public void setFixedDividend() {
+        GINStock.setFixedDividend(5);
+        assertEquals(5, GINStock.getFixedDividend());
+    }
 
 }
