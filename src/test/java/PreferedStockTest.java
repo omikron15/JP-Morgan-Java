@@ -48,9 +48,9 @@ public class PreferedStockTest {
 
     @Test
     public void calculateDividendYieldPOPstock() {
-        assertEquals(2, GINStock.calculateDividendYield(100), 0.01);
-        assertEquals(15.54, GINStock.calculateDividendYield(777), 0.01);
-        assertEquals(0.22, GINStock.calculateDividendYield(11), 0.01);
+        assertEquals(2, GINStock.calculateDividendYield(100), 0.0001);
+        assertEquals(0.2574, GINStock.calculateDividendYield(777), 0.0001);
+        assertEquals(18.1818, GINStock.calculateDividendYield(11), 0.0001);
     }
 
 }
