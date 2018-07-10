@@ -17,4 +17,8 @@ public class PreferedStock extends Stock {
     public void setFixedDividend(int fixedDividend) {
         this.fixedDividend = fixedDividend;
     }
+
+    public double calculateDividendYield(double marketPrice){
+        return (this.fixedDividend*marketPrice)/100;
+    }
 }

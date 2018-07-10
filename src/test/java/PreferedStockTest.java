@@ -1,4 +1,5 @@
 import models.PreferedStock;
+import models.Stock;
 import models.StockType;
 import org.junit.Before;
 import org.junit.Test;
@@ -43,6 +44,13 @@ public class PreferedStockTest {
     public void setFixedDividend() {
         GINStock.setFixedDividend(5);
         assertEquals(5, GINStock.getFixedDividend());
+    }
+
+    @Test
+    public void calculateDividendYieldPOPstock() {
+        assertEquals(2, GINStock.calculateDividendYield(100), 0.01);
+        assertEquals(15.54, GINStock.calculateDividendYield(777), 0.01);
+        assertEquals(0.22, GINStock.calculateDividendYield(11), 0.01);
     }
 
 }
