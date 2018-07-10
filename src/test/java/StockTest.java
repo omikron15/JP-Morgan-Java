@@ -55,26 +55,25 @@ public class StockTest {
 
     @Test
     public void calculateDividendYieldTEAstock() {
-        assertEquals(0.0, TEAstock.calculateDividendYield(100), 0.01);
-        assertEquals(0.0, TEAstock.calculateDividendYield(777), 0.01);
-        assertEquals(0.0, TEAstock.calculateDividendYield(11), 0.01);
+        assertEquals(0.0, TEAstock.calculateDividendYield(100), 0.1);
+        assertEquals(0.0, TEAstock.calculateDividendYield(777), 0.1);
+        assertEquals(0.0, TEAstock.calculateDividendYield(11), 0.1);
     }
 
     @Test
     public void calculateDividendYieldPOPstock() {
         POPstock = new Stock("POP", 8, 100);
-        assertEquals(0.08, POPstock.calculateDividendYield(100), 0.01);
-        assertEquals(0.0102, POPstock.calculateDividendYield(777), 0.01);
-        assertEquals(0.7272, POPstock.calculateDividendYield(11), 0.01);
+        assertEquals(0.08, POPstock.calculateDividendYield(100), 0.1);
+        assertEquals(0.0102, POPstock.calculateDividendYield(777), 0.1);
+        assertEquals(0.7272, POPstock.calculateDividendYield(11), 0.1);
     }
 
     @Test
-    public void calculatePERatioTEAstock() {
-        assertEquals(1250, POPstock.calculatePERatio(100), 0.01);
-        assertEquals(76176.47, POPstock.calculatePERatio(777), 0.01);
-        assertEquals(15.1265, POPstock.calculatePERatio(11), 0.01);
+    public void calculatePERatioPOPstock() {
+        POPstock = new Stock("POP", 8, 100);
+        assertEquals(1250, POPstock.calculatePERatio(100), 0.1);
+        assertEquals(75466.200, POPstock.calculatePERatio(777), 0.1);
+        assertEquals(15.1265, POPstock.calculatePERatio(11), 0.1);
     }
-
-
 
 }

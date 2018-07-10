@@ -21,4 +21,8 @@ public class PreferedStock extends Stock {
     public double calculateDividendYield(double marketPrice){
         return (this.fixedDividend*this.parValue)/marketPrice;
     }
+
+    public double calculatePERatio(double marketPrice){
+        return (marketPrice/(calculateDividendYield(marketPrice)));
+    }
 }

@@ -45,4 +45,9 @@ public class Stock {
     public double calculateDividendYield(double marketPrice){
         return (this.lastDividend/marketPrice);
     }
+
+    public double calculatePERatio(double marketPrice){
+        double dy = calculateDividendYield(marketPrice);
+        return (marketPrice/(dy));
+    }
 }
