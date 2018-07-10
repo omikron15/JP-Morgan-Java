@@ -1,4 +1,5 @@
 import models.Stock;
+import models.Trade;
 import org.junit.Before;
 import org.junit.Test;
 
