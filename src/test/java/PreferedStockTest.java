@@ -48,9 +48,16 @@ public class PreferedStockTest {
 
     @Test
     public void calculateDividendYieldPOPstock() {
-        assertEquals(2, GINStock.calculateDividendYield(100), 0.0001);
-        assertEquals(0.2574, GINStock.calculateDividendYield(777), 0.0001);
-        assertEquals(18.1818, GINStock.calculateDividendYield(11), 0.0001);
+        assertEquals(2, GINStock.calculateDividendYield(100), 0.01);
+        assertEquals(0.2574, GINStock.calculateDividendYield(777), 0.01);
+        assertEquals(18.1818, GINStock.calculateDividendYield(11), 0.01);
+    }
+
+    @Test
+    public void calculatePERatioTEAstock() {
+        assertEquals(50 , GINStock.calculatePERatio(100), 0.01);
+        assertEquals(3018.64, GINStock.calculatePERatio(777), 0.01);
+        assertEquals(0.6050, GINStock.calculatePERatio(11), 0.01);
     }
 
 }
