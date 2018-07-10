@@ -31,8 +31,8 @@ public class TradeTest {
     }
 
     @Test
-    public void getDate() {
-        assertEquals(currentDate, trade1.getDate());
+    public void getTimestamp() {
+        assertEquals(currentDate, trade1.getTimestamp());
     }
 
     @Test
