@@ -85,6 +85,6 @@ public class TradeTest {
 
     @Test
     public void calculateVWSP() {
-        assertEquals(16830347.33, Stock.calculateVWSP(trades));
+        assertEquals(6379.39, Trade.calculateVWSP(trades), 0.01);
     }
 }

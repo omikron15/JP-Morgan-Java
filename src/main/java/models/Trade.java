@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Trade {
@@ -36,5 +37,20 @@ public class Trade {
 
     public double getPrice() {
         return price;
+    }
+
+    public static double calculateVWSP(ArrayList<Trade> trades){
+
+        double tradeTimeQuantitySum = 0;
+        double quantitySum = 0;
+
+        for(Trade trade : trades){
+            tradeTimeQuantitySum += (trade.getPrice() * trade.getQuantity());
+            quantitySum += trade.getQuantity();
+        }
+
+        return (tradeTimeQuantitySum / quantitySum);
+
+
     }
 }
