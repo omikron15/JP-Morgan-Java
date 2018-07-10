@@ -1,4 +1,4 @@
-import models.Stock;
+import models.PreferedStock;
 import models.StockType;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +11,7 @@ public class PreferedStockTest {
 
     @Before
     public void setUp(){
-        GINStock = new Stock("GIN", 8, 2, 100);
+        GINStock = new PreferedStock("GIN", 8, 2, 100);
     }
 
     @Test
@@ -30,7 +30,7 @@ public class PreferedStockTest {
     }
 
     @Test
-    public void getLastDividend() {
+    public void getFixedDividend() {
         assertEquals(2, GINStock.getFixedDividend());
     }
 

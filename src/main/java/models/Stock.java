@@ -2,10 +2,10 @@ package models;
 
 public class Stock {
 
-    private String symbol;
-    private StockType stockType;
-    private int lastDividend;
-    private int parValue;
+    protected String symbol;
+    protected StockType stockType;
+    protected int lastDividend;
+    protected int parValue;
 
     public Stock(String symbol, int lastDividend, int parValue) {
         this.symbol = symbol;
