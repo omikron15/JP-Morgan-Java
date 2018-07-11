@@ -60,17 +60,12 @@ public class Stock {
 
         double tradeTimeQuantitySum = 0;
         double quantitySum = 0;
-        LocalDateTime adjustedDate = date.minusMinutes(15);
 
         for(Trade trade : trades){
-            //get trade time for comparisons
-            LocalDateTime tradeTime = trade.getTimestamp();
-
             if(Stock.isWithin15Mins(date, trade)&&(trade.getStock() == stock)){
                     tradeTimeQuantitySum += (trade.getPrice() * trade.getQuantity());
                     quantitySum += trade.getQuantity();
             }
-
         }
         return (tradeTimeQuantitySum / quantitySum);
     }
