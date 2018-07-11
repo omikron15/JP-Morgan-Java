@@ -21,26 +21,32 @@ public class StockTest {
     public Trade trade1;
     public Trade trade2;
     public Trade trade3;
+    public Trade trade4;
+    public Trade trade5;
 
     public Date date1;
     public Date date2;
     public Date date3;
+    public Date date4;
     public ArrayList<Trade> trades;
 
     @Before
     public void setUp(){
         TEAstock = new Stock("TEA", 0, 100);
+        POPstock = new Stock("POP", 8, 100);
 
         SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 
         String date1String = "01-01-2018 11:00:00";
         String date2String = "01-01-2018 11:05:00";
-        String date3String = "01-01-2018 11:30:00";
+        String date3String = "01-01-2018 11:10:00";
+        String date4String = "01-01-2018 11:30:00";
 
         try{
             date1 = dateformat.parse(date1String);
             date2 = dateformat.parse(date2String);
             date3 = dateformat.parse(date3String);
+            date4 = dateformat.parse(date4String);
         } catch (ParseException e) {
             System.out.println("Date format error");
         }
@@ -48,11 +54,15 @@ public class StockTest {
         trade1 = new Trade(TEAstock, date1, 150, TradeType.Buy, 500.50);
         trade2 = new Trade(TEAstock, date2, 100, TradeType.Sell, 300.79);
         trade3 = new Trade(TEAstock, date3, 2400, TradeType.Buy, 7000.10);
+        trade4 = new Trade(TEAstock, date4, 1400, TradeType.Buy, 3000.10);
+        trade5 = new Trade(POPstock, date2, 756, TradeType.Buy, 3175.85);
 
         trades = new ArrayList();
         trades.add(trade1);
         trades.add(trade2);
         trades.add(trade3);
+        trades.add(trade4);
+        trades.add(trade5);
     }
 
     @Test
@@ -102,7 +112,6 @@ public class StockTest {
 
     @Test
     public void calculateDividendYieldPOPstock() {
-        POPstock = new Stock("POP", 8, 100);
         assertEquals(0.08, POPstock.calculateDividendYield(100), 0.1);
         assertEquals(0.0102, POPstock.calculateDividendYield(777), 0.1);
         assertEquals(0.7272, POPstock.calculateDividendYield(11), 0.1);
@@ -110,7 +119,6 @@ public class StockTest {
 
     @Test
     public void calculatePERatioPOPstock() {
-        POPstock = new Stock("POP", 8, 100);
         assertEquals(1250, POPstock.calculatePERatio(100), 0.1);
         assertEquals(75466.200, POPstock.calculatePERatio(777), 0.1);
         assertEquals(15.1265, POPstock.calculatePERatio(11), 0.1);

@@ -1,5 +1,7 @@
 package models;
 
+import java.util.ArrayList;
+
 public class Stock {
 
     protected String symbol;
@@ -49,5 +51,20 @@ public class Stock {
     public double calculatePERatio(double marketPrice){
         double dy = calculateDividendYield(marketPrice);
         return (marketPrice/(dy));
+    }
+
+    public static double calculateVWSP(ArrayList<Trade> trades){
+
+        double tradeTimeQuantitySum = 0;
+        double quantitySum = 0;
+
+        for(Trade trade : trades){
+            tradeTimeQuantitySum += (trade.getPrice() * trade.getQuantity());
+            quantitySum += trade.getQuantity();
+        }
+
+        return (tradeTimeQuantitySum / quantitySum);
+
+
     }
 }
