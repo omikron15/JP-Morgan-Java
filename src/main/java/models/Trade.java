@@ -39,4 +39,16 @@ public class Trade {
     public double getPrice() {
         return price;
     }
+
+    public static double calculateGeometricMean(ArrayList<Trade> trades){
+
+        long total = 1;
+
+        for (Trade trade : trades){
+            total *= trade.getPrice();
+        }
+
+        double result = Math.pow(total, (1.0/trades.size()));
+        return result;
+    }
 }

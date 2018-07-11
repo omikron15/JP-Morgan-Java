@@ -66,6 +66,6 @@ public class TradeTest {
         trades.add(trade2);
         trades.add(trade3);
 
-        assertEquals(472.36, Trade.calculateGeometricMean(trades), 0.01);
+        assertEquals(472.36, Trade.calculateGeometricMean(trades), 0.2);
     }
 }
