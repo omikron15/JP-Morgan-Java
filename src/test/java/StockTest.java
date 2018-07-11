@@ -33,24 +33,6 @@ public class StockTest {
         TEAstock = new Stock("TEA", 0, 100);
         POPstock = new Stock("POP", 8, 100);
 
-        date1 = LocalDateTime.parse("2018-01-01T11:00:00");
-        date2 = LocalDateTime.parse("2018-01-01T11:05:00");
-        date3 = LocalDateTime.parse("2018-01-01T11:10:00");
-        date4 = LocalDateTime.parse("2018-01-01T11:30:00");
-
-
-        trade1 = new Trade(TEAstock, date1, 150, TradeType.Buy, 500.50);
-        trade2 = new Trade(TEAstock, date2, 100, TradeType.Sell, 300.79);
-        trade3 = new Trade(TEAstock, date3, 2400, TradeType.Buy, 7000.10);
-        trade4 = new Trade(TEAstock, date4, 1400, TradeType.Buy, 3000.10);
-        trade5 = new Trade(POPstock, date2, 756, TradeType.Buy, 3175.85);
-
-        trades = new ArrayList();
-        trades.add(trade1);
-        trades.add(trade2);
-        trades.add(trade3);
-        trades.add(trade4);
-        trades.add(trade5);
     }
 
     @Test
@@ -114,6 +96,28 @@ public class StockTest {
 
     @Test
     public void calculateVWSP() {
+
+        date1 = LocalDateTime.parse("2018-01-01T11:00:00");
+        date2 = LocalDateTime.parse("2018-01-01T11:05:00");
+        date3 = LocalDateTime.parse("2018-01-01T11:10:00");
+        date4 = LocalDateTime.parse("2018-01-01T11:30:00");
+
+        trade1 = new Trade(TEAstock, date1, 150, TradeType.Buy, 500.50);
+        trade2 = new Trade(TEAstock, date2, 100, TradeType.Sell, 300.79);
+        trade3 = new Trade(TEAstock, date3, 2400, TradeType.Buy, 7000.10);
+        trade4 = new Trade(TEAstock, date4, 1400, TradeType.Buy, 3000.10);
+        trade5 = new Trade(POPstock, date2, 756, TradeType.Buy, 3175.85);
+
+        trades = new ArrayList();
+        trades.add(trade1);
+        trades.add(trade2);
+        trades.add(trade3);
+        trades.add(trade4);
+        trades.add(trade5);
+
+        //Calculation should be done on only 3 of the 5 trades in the trades arrayList.
+        //trade 4 is outwith the 15min period and trade 5 is of a different stock type.
+
         LocalDateTime testDate = LocalDateTime.parse("2018-01-01T11:10:00");
         assertEquals(6379.39, Stock.calculateVWSP(TEAstock, trades, testDate), 0.01);
     }
