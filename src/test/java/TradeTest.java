@@ -4,6 +4,7 @@ import models.TradeType;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import static junit.framework.Assert.assertEquals;
@@ -12,7 +13,7 @@ public class TradeTest {
 
     public Trade trade;
     public Stock stock;
-    public Date date;
+    public LocalDateTime date;
 
 
 
@@ -20,7 +21,7 @@ public class TradeTest {
     @Before
     public void setUp(){
 
-        date = new Date();
+        date = LocalDateTime.parse("2018-01-01T11:00:00");
         stock = new Stock("TEA", 0, 100);
         trade =  new Trade(stock, date, 100, TradeType.Buy, 500.50);
 

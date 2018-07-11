@@ -1,6 +1,9 @@
 package models;
 
+
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Stock {
 
@@ -53,18 +56,27 @@ public class Stock {
         return (marketPrice/(dy));
     }
 
-    public static double calculateVWSP(ArrayList<Trade> trades){
+    public static double calculateVWSP(Stock stock, ArrayList<Trade> trades, LocalDateTime date){
 
         double tradeTimeQuantitySum = 0;
         double quantitySum = 0;
+        LocalDateTime adjustedDate = date.minusMinutes(15);
 
         for(Trade trade : trades){
-            tradeTimeQuantitySum += (trade.getPrice() * trade.getQuantity());
-            quantitySum += trade.getQuantity();
+            //get trade time for comparisons
+            LocalDateTime tradeTime = trade.getTimestamp();
+
+            //if trade time is within 15minute range
+            if((tradeTime.isBefore(date)||tradeTime.isEqual(date))&&(tradeTime.isBefore(date)||tradeTime.isEqual(date))){
+
+                //if stock is of the right type then use stock data for calculation
+                if((trade.getStock() == stock)){
+                    tradeTimeQuantitySum += (trade.getPrice() * trade.getQuantity());
+                    quantitySum += trade.getQuantity();
+                }
+            }
+
         }
-
         return (tradeTimeQuantitySum / quantitySum);
-
-
     }
 }

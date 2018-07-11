@@ -6,10 +6,8 @@ import models.TradeType;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 
@@ -24,10 +22,10 @@ public class StockTest {
     public Trade trade4;
     public Trade trade5;
 
-    public Date date1;
-    public Date date2;
-    public Date date3;
-    public Date date4;
+    public LocalDateTime date1;
+    public LocalDateTime date2;
+    public LocalDateTime date3;
+    public LocalDateTime date4;
     public ArrayList<Trade> trades;
 
     @Before
@@ -35,21 +33,11 @@ public class StockTest {
         TEAstock = new Stock("TEA", 0, 100);
         POPstock = new Stock("POP", 8, 100);
 
-        SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+        date1 = LocalDateTime.parse("2018-01-01T11:00:00");
+        date2 = LocalDateTime.parse("2018-01-01T11:05:00");
+        date3 = LocalDateTime.parse("2018-01-01T11:10:00");
+        date4 = LocalDateTime.parse("2018-01-01T11:30:00");
 
-        String date1String = "01-01-2018 11:00:00";
-        String date2String = "01-01-2018 11:05:00";
-        String date3String = "01-01-2018 11:10:00";
-        String date4String = "01-01-2018 11:30:00";
-
-        try{
-            date1 = dateformat.parse(date1String);
-            date2 = dateformat.parse(date2String);
-            date3 = dateformat.parse(date3String);
-            date4 = dateformat.parse(date4String);
-        } catch (ParseException e) {
-            System.out.println("Date format error");
-        }
 
         trade1 = new Trade(TEAstock, date1, 150, TradeType.Buy, 500.50);
         trade2 = new Trade(TEAstock, date2, 100, TradeType.Sell, 300.79);
@@ -126,7 +114,8 @@ public class StockTest {
 
     @Test
     public void calculateVWSP() {
-        assertEquals(6379.39, Stock.calculateVWSP(trades), 0.01);
+        LocalDateTime testDate = LocalDateTime.parse("2018-01-01T11:10:00");
+        assertEquals(6379.39, Stock.calculateVWSP(TEAstock, trades, testDate), 0.01);
     }
 
 }

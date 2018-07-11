@@ -1,17 +1,18 @@
 package models;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Trade {
 
     private Stock stock;
-    private Date timestamp;
+    private LocalDateTime timestamp;
     private int quantity;
     private TradeType type;
     private double price;
 
-    public Trade(Stock stock, Date timestamp, int quantity, TradeType type, double price) {
+    public Trade(Stock stock, LocalDateTime timestamp, int quantity, TradeType type, double price) {
         this.stock = stock;
         this.timestamp = timestamp;
         this.quantity = quantity;
@@ -23,7 +24,7 @@ public class Trade {
         return stock;
     }
 
-    public Date getTimestamp() {
+    public LocalDateTime getTimestamp() {
         return timestamp;
     }
 
