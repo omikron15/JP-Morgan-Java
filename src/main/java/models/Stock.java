@@ -66,17 +66,25 @@ public class Stock {
             //get trade time for comparisons
             LocalDateTime tradeTime = trade.getTimestamp();
 
-            //if trade time is within 15minute range
-            if((tradeTime.isBefore(date)||tradeTime.isEqual(date))&&(tradeTime.isBefore(date)||tradeTime.isEqual(date))){
-
-                //if stock is of the right type then use stock data for calculation
-                if((trade.getStock() == stock)){
+            if(Stock.isWithin15Mins(date, trade)&&(trade.getStock() == stock)){
                     tradeTimeQuantitySum += (trade.getPrice() * trade.getQuantity());
                     quantitySum += trade.getQuantity();
-                }
             }
 
         }
         return (tradeTimeQuantitySum / quantitySum);
+    }
+
+    private static boolean isWithin15Mins(LocalDateTime date, Trade trade){
+    //Method calculates if trade takes place within the 15 minutes before a given timestamp.
+        LocalDateTime adjustedDate = date.minusMinutes(15);
+        LocalDateTime tradeTime = trade.getTimestamp();
+
+        if((tradeTime.isBefore(date)||tradeTime.isEqual(date))&&(tradeTime.isAfter(adjustedDate)||tradeTime.isEqual(adjustedDate))){
+            return true;
+        }else {
+            return false;
+        }
+
     }
 }
