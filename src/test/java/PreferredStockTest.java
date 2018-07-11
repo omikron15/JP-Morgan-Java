@@ -1,18 +1,17 @@
-import models.PreferedStock;
-import models.Stock;
+import models.PreferredStock;
 import models.StockType;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class PreferedStockTest {
+public class PreferredStockTest {
 
-    public PreferedStock GINStock;
+    public PreferredStock GINStock;
 
     @Before
     public void setUp(){
-        GINStock = new PreferedStock("GIN", 8, 2, 100);
+        GINStock = new PreferredStock("GIN", 8, 2, 100);
     }
 
     @Test

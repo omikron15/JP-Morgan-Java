@@ -1,10 +1,10 @@
 package models;
 
-public class PreferedStock extends Stock {
+public class PreferredStock extends Stock {
 
     protected int fixedDividend;
 
-    public PreferedStock(String symbol, int lastDividend, int fixedDividend ,int parValue) {
+    public PreferredStock(String symbol, int lastDividend, int fixedDividend , int parValue) {
         super(symbol, lastDividend, parValue);
         this.stockType = StockType.Prefered;
         this.fixedDividend = fixedDividend;

@@ -42,7 +42,7 @@ public class Trade {
 
     public static double calculateGeometricMean(ArrayList<Trade> trades){
 
-        long total = 1;
+        double total = 1;
 
         for (Trade trade : trades){
             total *= trade.getPrice();
